@@ -23,9 +23,44 @@ local GREEN_B  = T.successB
 local AMBER    = T.warn
 local IDLE_FILTER = T.idle
 
+local BTN_TOP  = Color3.fromRGB(176, 84, 56)
+local BTN_BASE = Color3.fromRGB(206, 112, 78)
+local BTN_HOVER_TOP  = Color3.fromRGB(206, 110, 78)
+local BTN_HOVER_BASE = Color3.fromRGB(232, 132, 96)
+
 local function corner(p, r) local c = Instance.new("UICorner") c.CornerRadius = UDim.new(0, r or 10) c.Parent = p end
 local function stroke(p, col, th, tr) local s = Instance.new("UIStroke") s.Color = col or STROKE_C s.Thickness = th or 1.5 s.Transparency = tr or 0.45 s.Parent = p return s end
 local function gradient(p, c1, c2, rot) local g = Instance.new("UIGradient") g.Color = ColorSequence.new(c1, c2) g.Rotation = rot or 90 g.Parent = p return g end
+
+local function labelStroke(p)
+	local s = Instance.new("UIStroke")
+	s.Color = Color3.fromRGB(60, 32, 22)
+	s.Thickness = 1
+	s.Transparency = 0.5
+	s.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+	s.Parent = p
+end
+
+local function addHover(button, baseSize)
+	local g = button:FindFirstChildOfClass("UIGradient")
+	local edge = Instance.new("UIStroke")
+	edge.Color = Color3.fromRGB(255, 200, 170)
+	edge.Thickness = 1.5
+	edge.Transparency = 1
+	edge.Parent = button
+	button.MouseEnter:Connect(function()
+		if g then g.Color = ColorSequence.new(BTN_HOVER_TOP, BTN_HOVER_BASE) end
+		TweenService:Create(edge, TweenInfo.new(0.12), { Transparency = 0.2 }):Play()
+		TweenService:Create(button, TweenInfo.new(0.12), {
+			Size = UDim2.fromOffset(baseSize.X.Offset + 4, baseSize.Y.Offset + 2)
+		}):Play()
+	end)
+	button.MouseLeave:Connect(function()
+		if g then g.Color = ColorSequence.new(BTN_TOP, BTN_BASE) end
+		TweenService:Create(edge, TweenInfo.new(0.12), { Transparency = 1 }):Play()
+		TweenService:Create(button, TweenInfo.new(0.12), { Size = baseSize }):Play()
+	end)
+end
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "AdminTickets"
@@ -34,11 +69,9 @@ gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 gui.DisplayOrder = 210
 gui.Parent = player:WaitForChild("PlayerGui")
 
--- ===== Reuse the shared dock created by TicketButtonClient (or make it) =====
 local ticketGui = player.PlayerGui:WaitForChild("TicketButton", 5)
 local dock = ticketGui and ticketGui:FindFirstChild("Dock")
 if not dock then
-	-- Fallback: build our own dock if the player button script is absent
 	dock = Instance.new("Frame")
 	dock.Name = "Dock"
 	dock.Size = UDim2.fromOffset(150, 0)
@@ -49,24 +82,31 @@ if not dock then
 	local l = Instance.new("UIListLayout")
 	l.Padding = UDim.new(0, 8)
 	l.SortOrder = Enum.SortOrder.LayoutOrder
+	l.HorizontalAlignment = Enum.HorizontalAlignment.Left
 	l.Parent = dock
 end
 
+local TICKET_SIZE = UDim2.fromOffset(150, 58)
 local toggle = Instance.new("TextButton")
-toggle.Size = UDim2.fromOffset(150, 42)
-toggle.LayoutOrder = 1 -- sits above the Refund button (which is 2)
-toggle.BackgroundColor3 = ACCENT_A
-toggle.Text = "Tickets"
-toggle.TextColor3 = Color3.new(1, 1, 1)
-toggle.Font = Enum.Font.GothamBold
-toggle.TextSize = 15
+toggle.Size = TICKET_SIZE
+toggle.LayoutOrder = 1
+toggle.Text = ""
+toggle.BackgroundColor3 = BTN_TOP
 toggle.AutoButtonColor = false
 toggle.Parent = dock
 corner(toggle, 11)
-gradient(toggle, ACCENT_B, ACCENT_A, 90)
-stroke(toggle, Color3.fromRGB(120, 175, 255), 1.5, 0.35)
-toggle.MouseEnter:Connect(function() TweenService:Create(toggle, TweenInfo.new(0.13), { BackgroundColor3 = ACCENT_B }):Play() end)
-toggle.MouseLeave:Connect(function() TweenService:Create(toggle, TweenInfo.new(0.13), { BackgroundColor3 = ACCENT_A }):Play() end)
+gradient(toggle, BTN_TOP, BTN_BASE, 90)
+addHover(toggle, TICKET_SIZE)
+
+local toggleLabel = Instance.new("TextLabel")
+toggleLabel.Size = UDim2.fromScale(1, 1)
+toggleLabel.BackgroundTransparency = 1
+toggleLabel.Text = "Tickets"
+toggleLabel.TextColor3 = Color3.new(1, 1, 1)
+toggleLabel.Font = Enum.Font.GothamBold
+toggleLabel.TextSize = 15
+toggleLabel.Parent = toggle
+labelStroke(toggleLabel)
 
 local panel = Instance.new("Frame")
 panel.Size = UDim2.fromOffset(560, 480)
@@ -103,6 +143,7 @@ refreshBtn.Text = "Refresh"
 refreshBtn.TextColor3 = Color3.new(1, 1, 1)
 refreshBtn.Font = Enum.Font.GothamBold
 refreshBtn.TextSize = 14
+refreshBtn.AutoButtonColor = true
 refreshBtn.Parent = header
 corner(refreshBtn, 9)
 gradient(refreshBtn, GREEN_B, GREEN_A, 90)
@@ -115,6 +156,7 @@ closeBtn.Text = "X"
 closeBtn.TextColor3 = Color3.new(1, 1, 1)
 closeBtn.Font = Enum.Font.GothamBold
 closeBtn.TextSize = 14
+closeBtn.AutoButtonColor = true
 closeBtn.Parent = header
 corner(closeBtn, 8)
 
@@ -136,7 +178,7 @@ local function makeFilter(name, label, order)
 	b.TextColor3 = Color3.new(1, 1, 1)
 	b.Font = Enum.Font.GothamBold
 	b.TextSize = 13
-	b.AutoButtonColor = false
+	b.AutoButtonColor = true
 	b.BackgroundColor3 = IDLE_FILTER
 	b.Parent = filterBar
 	corner(b, 9)
@@ -207,6 +249,7 @@ local function makeRow(ticket)
 		pay.TextColor3 = Color3.new(1, 1, 1)
 		pay.Font = Enum.Font.GothamBold
 		pay.TextSize = 13
+		pay.AutoButtonColor = true
 		pay.Parent = row
 		corner(pay, 9)
 		gradient(pay, GREEN_B, GREEN_A, 90)
