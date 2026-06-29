@@ -18,6 +18,7 @@ end
 -- ===== SUBMIT (any player) =====
 local lastSubmit = {}
 Remotes.get("SubmitTicket").OnServerEvent:Connect(function(player, note)
+	if (Shared.REFUND_MODE or "on") ~= "on" then return end  -- only accept when fully on
 	note = type(note) == "string" and note:sub(1, 200) or ""
 	local now = os.time()
 	if lastSubmit[player] and now - lastSubmit[player] < 30 then return end -- rate limit
@@ -62,6 +63,7 @@ Remotes.get("SubmitTicket").OnServerEvent:Connect(function(player, note)
 end)
 -- ===== PREVIEW (any player): current owed amount, no rate disclosed =====
 Remotes.get("GetOwed").OnServerInvoke = function(player)
+	if (Shared.REFUND_MODE or "on") ~= "on" then return 0 end
 	local data = DataManager.getProfile(player)
 	if not data then return 0 end
 	local p = data.Purchases

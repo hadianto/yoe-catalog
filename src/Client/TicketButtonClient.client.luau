@@ -10,6 +10,9 @@ local showNotification = Remotes.get("ShowNotification")
 local getOwed = Remotes.get("GetOwed")
 
 local Shared = require(ReplicatedStorage:WaitForChild("Shared"))
+
+local mode = Shared.REFUND_MODE or "on"
+
 local T = Shared.THEME
 local ACCENT_A = T.accentA
 local ACCENT_B = T.accentB
@@ -57,13 +60,26 @@ dockLayout.Parent = dock
 
 -- Refund button (LayoutOrder 2 so admin Tickets sits above at 1)
 local btn = Instance.new("TextButton")
-btn.Size = UDim2.fromOffset(150, 42)
+btn.Size = UDim2.fromOffset(150, 54)
 btn.LayoutOrder = 2
 btn.Text = "Request Refund"
 btn.TextSize = 15
 btn.Parent = dock
 styleButton(btn, ACCENT_A, ACCENT_B)
 stroke(btn, Color3.fromRGB(120, 175, 255), 1.5, 0.35)
+-- Status badge appended to the button label, colored via RichText
+btn.RichText = true
+btn.TextWrapped = true
+local function badgeFor(m)
+	if m == "on" then
+		return '  <font color="#46b46c">[ON]</font>'      -- green
+	elseif m == "paused" then
+		return '  <font color="#e2a246">[PAUSED]</font>'   -- amber
+	else
+		return '  <font color="#e0566a">[OFF]</font>'      -- red
+	end
+end
+btn.Text = '<font size="15">Request Refund</font>\n<font size="12">' .. badgeFor(mode) .. '</font>'
 
 -- ===== Confirm popup =====
 local dim = Instance.new("Frame")
@@ -147,10 +163,36 @@ local cancelBtn  = popBtn("Cancel", GREY, Color3.fromRGB(98,104,120), 1, 1)
 
 -- ===== Open / fire (single handler, defined AFTER confirmBtn exists) =====
 btn.MouseButton1Click:Connect(function()
+	if mode == "off" then
+		owedLabel.Text = "Refunds Closed"
+		owedLabel.TextColor3 = Color3.fromRGB(224, 86, 106) -- red
+		subLabel.Text = "Refunds are currently closed."
+		confirmBtn.Visible = false
+		cancelBtn.Text = "OK"
+		dim.Visible = true
+		box.Size = UDim2.fromOffset(344, 172)
+		TweenService:Create(box, TweenInfo.new(0.18, Enum.EasingStyle.Back),
+			{ Size = UDim2.fromOffset(360, 180) }):Play()
+		return
+	end
+	if mode == "paused" then
+		-- (the paused info popup from before)
+		owedLabel.Text = "Refunds Paused"
+		owedLabel.TextColor3 = Color3.fromRGB(226, 162, 70)
+		subLabel.Text = Shared.REFUND_PAUSED_MESSAGE
+		confirmBtn.Visible = false
+		cancelBtn.Text = "OK"
+		dim.Visible = true
+		box.Size = UDim2.fromOffset(344, 172)
+		TweenService:Create(box, TweenInfo.new(0.18, Enum.EasingStyle.Back),
+			{ Size = UDim2.fromOffset(360, 180) }):Play()
+		return
+	end
+
+	-- mode == "on": the normal owed-check flow you already have
 	local owed = 0
 	local ok = pcall(function() owed = getOwed:InvokeServer() end)
 	if not ok then owed = 0 end
-
 	if owed <= 0 then
 		owedLabel.Text = "Nothing to refund yet"
 		owedLabel.TextColor3 = Color3.fromRGB(200, 170, 90)
@@ -162,7 +204,6 @@ btn.MouseButton1Click:Connect(function()
 		subLabel.Text = "The owner reviews and pays this out manually."
 		confirmBtn.Visible = true
 	end
-
 	dim.Visible = true
 	box.Size = UDim2.fromOffset(344, 172)
 	TweenService:Create(box, TweenInfo.new(0.18, Enum.EasingStyle.Back),

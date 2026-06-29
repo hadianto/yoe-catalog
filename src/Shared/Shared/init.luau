@@ -4,6 +4,15 @@ local Shared = {}
 
 Shared.GAME_NAME = "Yoe Catalog" -- CHANGE ONCE. Renaming later orphans all save data.
 Shared.DATA_VERSION = 1
+
+-- Refund feature mode:
+--   "on"      = fully working, players can request refunds
+--   "paused"  = button still shows, but tells people refunds are paused (no requests accepted)
+--   "off"     = button hidden entirely
+Shared.REFUND_MODE = "on"
+Shared.REFUND_PAUSED_MESSAGE = "Refunds are not available until further notice."
+Shared.REFUND_RATE = 0.2
+
 -- in Shared.lua
 Shared.ADMIN_IDS = { 9039786969, 9835488686 } -- REPLACE both with your two real UserIds (yours + alt/partner)
 Shared.COMMUNITY_GROUP_ID = 776646744
