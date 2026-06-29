@@ -6,7 +6,8 @@ Shared.GAME_NAME = "Yoe Catalog" -- CHANGE ONCE. Renaming later orphans all save
 Shared.DATA_VERSION = 1
 -- in Shared.lua
 Shared.ADMIN_IDS = { 9039786969, 9835488686 } -- REPLACE both with your two real UserIds (yours + alt/partner)
-
+Shared.COMMUNITY_GROUP_ID = 776646744
+Shared.BLOCK_MEMBERS_FROM_BUYING = true  -- true = members can't buy at all; false = members buy but don't accrue refund
 -- ===== THEME: edit these values to recolor the entire game in one place =====
 Shared.THEME = {
 	accentA    = Color3.fromRGB(198, 104, 72),  -- terracotta, primary buttons

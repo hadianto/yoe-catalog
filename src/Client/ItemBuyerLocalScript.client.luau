@@ -1,13 +1,23 @@
--- ItemBuyerLocalScript  (now in StarterPlayer > StarterPlayerScripts)
+-- ItemBuyerLocalScript  (StarterPlayer > StarterPlayerScripts)
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local MarketplaceService = game:GetService("MarketplaceService")
 local player = Players.LocalPlayer
 
+local Shared = require(ReplicatedStorage:WaitForChild("Shared"))
 local Remotes = require(ReplicatedStorage.Shared:WaitForChild("Remotes"))
 local trackRemote = Remotes.get("TrackPurchase")
 
--- GUI now lives in StarterGui, so it copies into each player's PlayerGui
+-- Membership block (toggleable in Shared)
+local blockedMember = false
+task.spawn(function()
+	local gid = Shared.COMMUNITY_GROUP_ID
+	if Shared.BLOCK_MEMBERS_FROM_BUYING and gid and gid ~= 0 then
+		local ok, inGroup = pcall(function() return player:IsInGroup(gid) end)
+		if ok and inGroup then blockedMember = true end
+	end
+end)
+
 local screenGui = player:WaitForChild("PlayerGui"):WaitForChild("ItemBuyer")
 local panel = screenGui:WaitForChild("Frame"):WaitForChild("Frame")
 local button_frame = panel:WaitForChild("ButtonFrame")
@@ -51,6 +61,10 @@ back_button.MouseButton1Click:Connect(function()
 	change_tab("By Yoe | Version 1.0")
 end)
 button.MouseButton1Click:Connect(function()
+	if blockedMember then
+		topbar_title.Text = "Members can't purchase here"
+		return
+	end
 	if check_tab() == "Catalog" then
 		MarketplaceService:PromptPurchase(player, tonumber(text_box.Text))
 	elseif check_tab() == "Bundles" then
