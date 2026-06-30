@@ -52,5 +52,10 @@ function TicketStore.updateStatus(ticketId, newStatus, byUserId)
 	end)
 	return ok, err
 end
-
+function TicketStore.clearAll()
+	local ok, err = pcall(function()
+		store:SetAsync(KEY, {})  -- replace the whole ticket list with empty
+	end)
+	return ok, err
+end
 return TicketStore
