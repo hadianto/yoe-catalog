@@ -23,7 +23,14 @@ function DataManager.getProfile(player)
 	end
 	return nil
 end
-
+function DataManager.viewProfile(userId)
+	local key = "Player_" .. userId
+	local profile = ProfileStore:ViewProfileAsync(key)
+	if profile then
+		return profile.Data
+	end
+	return nil
+end
 function DataManager.onProfileLoaded(callback)
 	table.insert(profileLoadedCallbacks, callback)
 end

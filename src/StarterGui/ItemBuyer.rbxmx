@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="ScreenGui" referent="RBX851B28162DB64E0E873246AF829F7D8A">
+	<Item class="ScreenGui" referent="RBXCF0CF49DC86D4953B70C38DBF8F0FA52">
 		<Properties>
 			<bool name="ClipToDeviceSafeArea">true</bool>
 			<int name="DisplayOrder">120</int>
@@ -25,7 +25,7 @@
 			<int64 name="SourceAssetId">14973718680</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="LocalScript" referent="RBXA0052939452349B2A414CECE29473E73">
+		<Item class="LocalScript" referent="RBX50D01C7D87C749868C34E632511FC27E">
 			<Properties>
 				<ProtectedString name="Source"><![CDATA[local Player = game.Players.LocalPlayer
 
@@ -43,7 +43,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Frame" referent="RBX9DF41450368140758D2073E08C448FA3">
+		<Item class="Frame" referent="RBXA2AC20F3102F4A5A98CBE6F59C14308A">
 			<Properties>
 				<token name="Style">0</token>
 				<bool name="Active">false</bool>
@@ -107,7 +107,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Frame" referent="RBX0A31E9F66FAE473A88A9AE230614F335">
+			<Item class="Frame" referent="RBX6D458B2335B941D79AD94F10D47352E5">
 				<Properties>
 					<token name="Style">0</token>
 					<bool name="Active">false</bool>
@@ -171,7 +171,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="UICorner" referent="RBX2C5D440742374C639F56D09664B614E9">
+				<Item class="UICorner" referent="RBXF86DE6461DCF475491D4872D987B242E">
 					<Properties>
 						<UDim name="BottomLeftRadius">
 							<S>0</S>
@@ -197,7 +197,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="UIAspectRatioConstraint" referent="RBXCAAFD42C161443F9BAF0CD314AA7CED1">
+				<Item class="UIAspectRatioConstraint" referent="RBXBD7C050F0C7A412585450F4FDEFDC55F">
 					<Properties>
 						<float name="AspectRatio">1.60273969</float>
 						<token name="AspectType">0</token>
@@ -210,7 +210,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Frame" referent="RBX7A95EBE1510D466084C66C8363888684">
+				<Item class="Frame" referent="RBX89C93E09089A416588AABEF190DF3BCE">
 					<Properties>
 						<token name="Style">0</token>
 						<bool name="Active">false</bool>
@@ -274,7 +274,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="UICorner" referent="RBX1246411B705848F1A71CA07BEECB4F9F">
+					<Item class="UICorner" referent="RBXC3B2F30D316447FEB13CF2861AF9C5AD">
 						<Properties>
 							<UDim name="BottomLeftRadius">
 								<S>0</S>
@@ -300,7 +300,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Frame" referent="RBXD370782F9E4E4F7EAA433C115B0F8FEB">
+					<Item class="Frame" referent="RBXE1CB4DCE038D4B72B4659B6B6DA9B886">
 						<Properties>
 							<token name="Style">0</token>
 							<bool name="Active">false</bool>
@@ -364,7 +364,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UIAspectRatioConstraint" referent="RBXFC4291EDEE764A29AD0FF79DCB38085B">
+						<Item class="UIAspectRatioConstraint" referent="RBX469F0123FD794433BA70F08468DD73B8">
 							<Properties>
 								<float name="AspectRatio">39</float>
 								<token name="AspectType">0</token>
@@ -377,7 +377,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIGradient" referent="RBX31D8B9A9BA204F22A7888200C32D5B04">
+						<Item class="UIGradient" referent="RBX82E72CB112854320B9108374BDC202B5">
 							<Properties>
 								<ColorSequence name="Color">0 0.156863 0.137255 0.121569 0 1 0.109804 0.0980392 0.0862745 0 </ColorSequence>
 								<bool name="Enabled">true</bool>
@@ -399,7 +399,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="UIAspectRatioConstraint" referent="RBX803DE0AB19BD465F8A83DE5063220B54">
+					<Item class="UIAspectRatioConstraint" referent="RBX15EA1714DE684C2D811918F3A461F50D">
 						<Properties>
 							<float name="AspectRatio">7.3125</float>
 							<token name="AspectType">0</token>
@@ -412,7 +412,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="TextLabel" referent="RBXC97B4041F5C54E79800332836B96A0BB">
+					<Item class="TextLabel" referent="RBXC89DD71D522C4E5EBA31B9F3EA13B40D">
 						<Properties>
 							<Font name="FontFace">
 								<Family><url>rbxasset://fonts/families/GothamSSm.json</url></Family>
@@ -507,7 +507,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UIAspectRatioConstraint" referent="RBX160759C5565447F79FA38E98B25361E7">
+						<Item class="UIAspectRatioConstraint" referent="RBXC483D23F00F348518D128DD762CF377D">
 							<Properties>
 								<float name="AspectRatio">6.85416651</float>
 								<token name="AspectType">0</token>
@@ -520,7 +520,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UITextSizeConstraint" referent="RBXC76DA715ED184AE096039B5F55DFE04F">
+						<Item class="UITextSizeConstraint" referent="RBXA2CB1DCB33E948269CA55DC7237518A4">
 							<Properties>
 								<int name="MaxTextSize">23</int>
 								<int name="MinTextSize">1</int>
@@ -533,7 +533,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="ImageButton" referent="RBX236040978129405EA9AD25236ECAACC5">
+					<Item class="ImageButton" referent="RBX8C2A19530A424689A6A01AFACF236E56">
 						<Properties>
 							<Content name="HoverImage"><null></null></Content>
 							<Content name="Image"><url>http://www.roblox.com/asset/?id=6031094670</url></Content>
@@ -639,7 +639,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIGradient" referent="RBX0B62293F39964049AD69334ED254FE2F">
+					<Item class="UIGradient" referent="RBXD037CABA2D1F42B8A02EEAD6425BA5F8">
 						<Properties>
 							<ColorSequence name="Color">0 0.423529 0.243137 0.188235 0 1 0.305882 0.172549 0.133333 0 </ColorSequence>
 							<bool name="Enabled">true</bool>
@@ -660,7 +660,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIGradient" referent="RBX6EC471CBA8714C19B9F6639BB7518E7B">
+					<Item class="UIGradient" referent="RBX822329199BCE461C9A8C2331499E2D78">
 						<Properties>
 							<ColorSequence name="Color">0 1 1 1 0 1 1 1 1 0 </ColorSequence>
 							<bool name="Enabled">true</bool>
@@ -682,7 +682,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Frame" referent="RBXBD8D5233B0F44C67861C4C741BC5DB96">
+				<Item class="Frame" referent="RBX254DAF9C5F4849A5BEAE082802D64B33">
 					<Properties>
 						<token name="Style">0</token>
 						<bool name="Active">false</bool>
@@ -746,7 +746,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="UIListLayout" referent="RBXFA0B91D688564C0A8928F6023739FB99">
+					<Item class="UIListLayout" referent="RBXC6F7E4C82CA245A9820B8E7A13645450">
 						<Properties>
 							<token name="HorizontalFlex">0</token>
 							<token name="ItemLineAlignment">0</token>
@@ -768,7 +768,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="TextButton" referent="RBXDC373C7F617B4385875ACDC1FD3FE5AD">
+					<Item class="TextButton" referent="RBXFBAF00359DD241A28B82780F75E0A9DB">
 						<Properties>
 							<Font name="FontFace">
 								<Family><url>rbxasset://fonts/families/SourceSansPro.json</url></Family>
@@ -869,7 +869,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UICorner" referent="RBXD0C716EFD69641F2B37C6562136E0D5F">
+						<Item class="UICorner" referent="RBX734F9DA1F9744DAFA4F05793023E35D3">
 							<Properties>
 								<UDim name="BottomLeftRadius">
 									<S>0</S>
@@ -895,7 +895,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="TextLabel" referent="RBX3F09E10603334313A41C6E1AAB72A683">
+						<Item class="TextLabel" referent="RBXE2218868A52E45CAA1CAE6D9C2839406">
 							<Properties>
 								<Font name="FontFace">
 									<Family><url>rbxasset://fonts/families/GothamSSm.json</url></Family>
@@ -990,7 +990,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<int64 name="SourceAssetId">-1</int64>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
-							<Item class="UIAspectRatioConstraint" referent="RBX42B20E30213D4B5981F755D115F86AD8">
+							<Item class="UIAspectRatioConstraint" referent="RBX93931031011D438E8D02DA3D4FFBDB65">
 								<Properties>
 									<float name="AspectRatio">4</float>
 									<token name="AspectType">0</token>
@@ -1003,7 +1003,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 									<BinaryString name="Tags"></BinaryString>
 								</Properties>
 							</Item>
-							<Item class="UITextSizeConstraint" referent="RBX6F77455233F34F4B9EAF79B3CEE333F1">
+							<Item class="UITextSizeConstraint" referent="RBXDBC4B7D8018643E799919D313E5F0724">
 								<Properties>
 									<int name="MaxTextSize">20</int>
 									<int name="MinTextSize">1</int>
@@ -1016,7 +1016,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								</Properties>
 							</Item>
 						</Item>
-						<Item class="UIAspectRatioConstraint" referent="RBX2EDD97AA3BE14C5D9572823FDCD73AC7">
+						<Item class="UIAspectRatioConstraint" referent="RBX4616953D9A654DE0AF25A48D341D7D6C">
 							<Properties>
 								<float name="AspectRatio">4</float>
 								<token name="AspectType">0</token>
@@ -1029,7 +1029,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UITextSizeConstraint" referent="RBX80D6CEB15A1F47E49BA308364644AEFE">
+						<Item class="UITextSizeConstraint" referent="RBX8EF97ACD703E4EAD977CA420A54A1065">
 							<Properties>
 								<int name="MaxTextSize">14</int>
 								<int name="MinTextSize">1</int>
@@ -1041,7 +1041,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIGradient" referent="RBX347E20A22EBB4DF994DDA7194ED631D1">
+						<Item class="UIGradient" referent="RBX3E8960D10CB8491689AB00EBD10F27FC">
 							<Properties>
 								<ColorSequence name="Color">0 0.878431 0.52549 0.376471 0 1 0.776471 0.407843 0.282353 0 </ColorSequence>
 								<bool name="Enabled">true</bool>
@@ -1062,7 +1062,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIStroke" referent="RBX528F5A7AC74D4AA2BBB850911E859178">
+						<Item class="UIStroke" referent="RBXA9D7F463D77C40648E61EA9086F7859A">
 							<Properties>
 								<token name="ApplyStrokeMode">1</token>
 								<UDim name="BorderOffset">
@@ -1090,7 +1090,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="TextButton" referent="RBX67623B6F62FF46C2A199C5F30CD93199">
+					<Item class="TextButton" referent="RBX5591674FE9C545289309954CD41C4C09">
 						<Properties>
 							<Font name="FontFace">
 								<Family><url>rbxasset://fonts/families/SourceSansPro.json</url></Family>
@@ -1191,7 +1191,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UICorner" referent="RBX20678BE9CC7540F596C6E8F616A8AB6A">
+						<Item class="UICorner" referent="RBX01A8B6B04F854BBA9EA26EC970FAC297">
 							<Properties>
 								<UDim name="BottomLeftRadius">
 									<S>0</S>
@@ -1217,7 +1217,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIAspectRatioConstraint" referent="RBXBF13D692BDCE41B6825001AC5BFED6A6">
+						<Item class="UIAspectRatioConstraint" referent="RBXE2B31958292A498492B9243422420BFE">
 							<Properties>
 								<float name="AspectRatio">4</float>
 								<token name="AspectType">0</token>
@@ -1230,7 +1230,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="TextLabel" referent="RBX4E99560F24C045279B918EFC19F93587">
+						<Item class="TextLabel" referent="RBXA23BF275A03347B4B4AE86A772C1F7A2">
 							<Properties>
 								<Font name="FontFace">
 									<Family><url>rbxasset://fonts/families/GothamSSm.json</url></Family>
@@ -1325,7 +1325,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<int64 name="SourceAssetId">-1</int64>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
-							<Item class="UIAspectRatioConstraint" referent="RBX492896F212034D6A930DF4A7CEE6D670">
+							<Item class="UIAspectRatioConstraint" referent="RBX7E035F7F6CD949A487520BCABA2BC524">
 								<Properties>
 									<float name="AspectRatio">4</float>
 									<token name="AspectType">0</token>
@@ -1338,7 +1338,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 									<BinaryString name="Tags"></BinaryString>
 								</Properties>
 							</Item>
-							<Item class="UITextSizeConstraint" referent="RBX7288E545FE0E4A61AA1C118F350BC6C5">
+							<Item class="UITextSizeConstraint" referent="RBX7B7AB1C3AFE84B71A928A0E5E2DE2340">
 								<Properties>
 									<int name="MaxTextSize">20</int>
 									<int name="MinTextSize">1</int>
@@ -1351,7 +1351,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								</Properties>
 							</Item>
 						</Item>
-						<Item class="UIGradient" referent="RBX28E240A2644C4277A536676D1787C277">
+						<Item class="UIGradient" referent="RBXF1A28BE10DCB44DDB6AD598B4E14710F">
 							<Properties>
 								<ColorSequence name="Color">0 0.878431 0.52549 0.376471 0 1 0.776471 0.407843 0.282353 0 </ColorSequence>
 								<bool name="Enabled">true</bool>
@@ -1372,7 +1372,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIStroke" referent="RBX136E367F209045B0BFE3726F84DC34DC">
+						<Item class="UIStroke" referent="RBX7C925D210E064836B156922B036B8D23">
 							<Properties>
 								<token name="ApplyStrokeMode">1</token>
 								<UDim name="BorderOffset">
@@ -1400,7 +1400,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="UIAspectRatioConstraint" referent="RBXF909557F1F8C405DB20267F9EFE3DC4D">
+					<Item class="UIAspectRatioConstraint" referent="RBXB8BF20097EEF4CE99D5916456CF9492B">
 						<Properties>
 							<float name="AspectRatio">0.641025662</float>
 							<token name="AspectType">0</token>
@@ -1413,7 +1413,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="TextButton" referent="RBXC772552B888A4EA9AC2AC50C46E775B6">
+					<Item class="TextButton" referent="RBXF1FE46154ADB46F0814298C9637B2E1C">
 						<Properties>
 							<Font name="FontFace">
 								<Family><url>rbxasset://fonts/families/SourceSansPro.json</url></Family>
@@ -1427,7 +1427,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int name="MaxVisibleGraphemes">-1</int>
 							<string name="OpenTypeFeatures"></string>
 							<bool name="RichText">false</bool>
-							<string name="Text">Roblox Plus</string>
+							<string name="Text"></string>
 							<Color3 name="TextColor3">
 								<R>1</R>
 								<G>1</G>
@@ -1514,7 +1514,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UICorner" referent="RBXACF4484B77CA4920832999586D7ECCAD">
+						<Item class="UICorner" referent="RBX9D3773A3FFB640669EC91B770E81EA3D">
 							<Properties>
 								<UDim name="BottomLeftRadius">
 									<S>0</S>
@@ -1540,7 +1540,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="TextLabel" referent="RBXF775136AE32544618F6EBBCB1232302F">
+						<Item class="TextLabel" referent="RBXBBB497E3A4B6480EB9015D6D3A909575">
 							<Properties>
 								<Font name="FontFace">
 									<Family><url>rbxasset://fonts/families/GothamSSm.json</url></Family>
@@ -1635,7 +1635,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<int64 name="SourceAssetId">-1</int64>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
-							<Item class="UIAspectRatioConstraint" referent="RBX4402C6B932A74A278AFC01037D1E9DDC">
+							<Item class="UIAspectRatioConstraint" referent="RBX199D49E95CB145DFB6FA501162871FF8">
 								<Properties>
 									<float name="AspectRatio">4</float>
 									<token name="AspectType">0</token>
@@ -1648,7 +1648,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 									<BinaryString name="Tags"></BinaryString>
 								</Properties>
 							</Item>
-							<Item class="UITextSizeConstraint" referent="RBX0013C291F50B4A44B13CC14CB5556A2E">
+							<Item class="UITextSizeConstraint" referent="RBX718F4E1D84C2443383C5CE378871AB41">
 								<Properties>
 									<int name="MaxTextSize">20</int>
 									<int name="MinTextSize">1</int>
@@ -1661,7 +1661,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								</Properties>
 							</Item>
 						</Item>
-						<Item class="UIAspectRatioConstraint" referent="RBX9A2FA73B456C4CBB81FCA8249B2D6EEE">
+						<Item class="UIAspectRatioConstraint" referent="RBX9968E5B54EB34D35BED6984B1F888220">
 							<Properties>
 								<float name="AspectRatio">4</float>
 								<token name="AspectType">0</token>
@@ -1674,7 +1674,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UITextSizeConstraint" referent="RBX0FEB0C699F4640B39599D5B02ACD9B89">
+						<Item class="UITextSizeConstraint" referent="RBX8E8D0FBE90B04279ACF4E8C26B77B43C">
 							<Properties>
 								<int name="MaxTextSize">14</int>
 								<int name="MinTextSize">1</int>
@@ -1686,7 +1686,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIGradient" referent="RBXF6E04021C47746AA85F76D00B2547D02">
+						<Item class="UIGradient" referent="RBX7EB17E51EDDC4BD6B235EC704F923A08">
 							<Properties>
 								<ColorSequence name="Color">0 0.878431 0.52549 0.376471 0 1 0.776471 0.407843 0.282353 0 </ColorSequence>
 								<bool name="Enabled">true</bool>
@@ -1707,7 +1707,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UIStroke" referent="RBX7664A10339D24985A7789DFDFEEA405D">
+						<Item class="UIStroke" referent="RBXD8B64B672F7F4E0FA9293BA7EA11ACAF">
 							<Properties>
 								<token name="ApplyStrokeMode">1</token>
 								<UDim name="BorderOffset">
@@ -1736,7 +1736,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						</Item>
 					</Item>
 				</Item>
-				<Item class="TextBox" referent="RBXCE15A952A6564C8F9B64F74C4D42710D">
+				<Item class="TextBox" referent="RBXACE3A31AF74649D8B8BF7BF30C2D59A2">
 					<Properties>
 						<bool name="ClearTextOnFocus">true</bool>
 						<Font name="FontFace">
@@ -1841,7 +1841,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="UICorner" referent="RBXA34EDD88A7A1400F89CB8F72E92024C9">
+					<Item class="UICorner" referent="RBX05E02D7AC1A341179C95E09633BD5AE5">
 						<Properties>
 							<UDim name="BottomLeftRadius">
 								<S>0</S>
@@ -1867,7 +1867,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIAspectRatioConstraint" referent="RBX638A3F0BF7BF4446AC2C5D740A79E722">
+					<Item class="UIAspectRatioConstraint" referent="RBXA31C670022DA4F9784E4E7709D88FEA7">
 						<Properties>
 							<float name="AspectRatio">6.44000006</float>
 							<token name="AspectType">0</token>
@@ -1880,7 +1880,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UITextSizeConstraint" referent="RBXCBF4872994B54B8CBD1F41467F02AA5A">
+					<Item class="UITextSizeConstraint" referent="RBXBD764843593A45A6A15A0DD598DA68E3">
 						<Properties>
 							<int name="MaxTextSize">20</int>
 							<int name="MinTextSize">1</int>
@@ -1892,7 +1892,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIStroke" referent="RBXFC783A4A1B7847118E1B02AFE4FBB5CD">
+					<Item class="UIStroke" referent="RBXFC45E322574744D99F46EFF185FF426C">
 						<Properties>
 							<token name="ApplyStrokeMode">1</token>
 							<UDim name="BorderOffset">
@@ -1920,7 +1920,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="TextButton" referent="RBX23D6BC1EC2FA4F56BA227FEE2FD7640A">
+				<Item class="TextButton" referent="RBXA699996E9390492A9ECF2B844DAA3D95">
 					<Properties>
 						<Font name="FontFace">
 							<Family><url>rbxasset://fonts/families/SourceSansPro.json</url></Family>
@@ -2021,7 +2021,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="UICorner" referent="RBXBEB6F57ED3D348E3A4C7CB9ADABD9100">
+					<Item class="UICorner" referent="RBX4751CCDD67294C8B9745DE19FD190121">
 						<Properties>
 							<UDim name="BottomLeftRadius">
 								<S>0</S>
@@ -2047,7 +2047,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="TextLabel" referent="RBXDF0768EE250542D48FED6C962D91AF12">
+					<Item class="TextLabel" referent="RBX98894B67046541888F8429BD355C33B0">
 						<Properties>
 							<Font name="FontFace">
 								<Family><url>rbxasset://fonts/families/GothamSSm.json</url></Family>
@@ -2142,7 +2142,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
-						<Item class="UIAspectRatioConstraint" referent="RBX13433D83286D483DAF04E7B6549E4153">
+						<Item class="UIAspectRatioConstraint" referent="RBX9EDB477C2EBB45A592FE5913FC6B158E">
 							<Properties>
 								<float name="AspectRatio">4</float>
 								<token name="AspectType">0</token>
@@ -2155,7 +2155,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
 							</Properties>
 						</Item>
-						<Item class="UITextSizeConstraint" referent="RBXE8CA59E7F7374DD1A5C6D6501DE3EF5C">
+						<Item class="UITextSizeConstraint" referent="RBX72DF82D2CB894F2CA1E4258267633E7B">
 							<Properties>
 								<int name="MaxTextSize">20</int>
 								<int name="MinTextSize">1</int>
@@ -2168,7 +2168,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="UIAspectRatioConstraint" referent="RBXDED15CC7BEB94DCC85CBDE63EE5FB38D">
+					<Item class="UIAspectRatioConstraint" referent="RBXD465B7289AFF42BC964B3BD42F4AEA38">
 						<Properties>
 							<float name="AspectRatio">4</float>
 							<token name="AspectType">0</token>
@@ -2181,7 +2181,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UITextSizeConstraint" referent="RBX0655B2ADB89B40CEA5E1D36811B166D1">
+					<Item class="UITextSizeConstraint" referent="RBX33F6CAB014714791A472420EBC92DF2C">
 						<Properties>
 							<int name="MaxTextSize">14</int>
 							<int name="MinTextSize">1</int>
@@ -2193,7 +2193,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIGradient" referent="RBX58590FCDAF194B6CB335FAE4539C8CA7">
+					<Item class="UIGradient" referent="RBX2CE6A4BB8A0641208A3D087D2F68F857">
 						<Properties>
 							<ColorSequence name="Color">0 0.156863 0.137255 0.121569 0 1 0.109804 0.0980392 0.0862745 0 </ColorSequence>
 							<bool name="Enabled">true</bool>
@@ -2214,7 +2214,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIStroke" referent="RBXD36C2869E59E4C19826BFE6062493CDB">
+					<Item class="UIStroke" referent="RBX00F7B439789A499C924855BC59813496">
 						<Properties>
 							<token name="ApplyStrokeMode">1</token>
 							<UDim name="BorderOffset">
@@ -2241,7 +2241,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="UIGradient" referent="RBX539C24BAE9B94AA68320D2B72000455D">
+					<Item class="UIGradient" referent="RBXA559F909316643818540C20A8AD98D4E">
 						<Properties>
 							<ColorSequence name="Color">0 1 1 1 0 1 1 1 1 0 </ColorSequence>
 							<bool name="Enabled">true</bool>
@@ -2263,7 +2263,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="UIGradient" referent="RBXEDF8229970E149338AD952959508455F">
+				<Item class="UIGradient" referent="RBXCC7B48EBA1C54C4BB614CF5F06715F04">
 					<Properties>
 						<ColorSequence name="Color">0 0.156863 0.137255 0.121569 0 1 0.109804 0.0980392 0.0862745 0 </ColorSequence>
 						<bool name="Enabled">true</bool>
@@ -2284,7 +2284,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="UIStroke" referent="RBXA150EE9F70E7414F8C8813AE1A99A17B">
+				<Item class="UIStroke" referent="RBX3A4B6D01F63A463592DAEE41027BFE21">
 					<Properties>
 						<token name="ApplyStrokeMode">1</token>
 						<UDim name="BorderOffset">
@@ -2312,7 +2312,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="ImageLabel" referent="RBX1860EE8C01E54629A47A6A0380657F7C">
+			<Item class="ImageLabel" referent="RBX78A9BA20D0C74E4797A3465835201813">
 				<Properties>
 					<Content name="Image"><url>rbxassetid://6372755229</url></Content>
 					<Color3 name="ImageColor3">
@@ -2409,7 +2409,7 @@ Player.Character:WaitForChild("Humanoid").JumpPower = 0]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="LocalScript" referent="RBX6C5B26A0FE454086A38823CFDE898121">
+				<Item class="LocalScript" referent="RBXE105905CEF654167933C03C2518B72FD">
 					<Properties>
 						<ProtectedString name="Source"><![CDATA[-- Calm ambient drift: slow ease in/out, no visible reset, no seam.
 local TweenService = game:GetService("TweenService")
@@ -2444,7 +2444,7 @@ TweenService:Create(image, info, {
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="ImageLabel" referent="RBX9103B3BA7EC64E6FA0B29EF08C819812">
+				<Item class="ImageLabel" referent="RBX2D08946F823D43D19701DA6970F1DB87">
 					<Properties>
 						<Content name="Image"><url>rbxassetid://6372755229</url></Content>
 						<Color3 name="ImageColor3">
@@ -2544,7 +2544,7 @@ TweenService:Create(image, info, {
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX756AA7BACAEE4E1AB8FFECBB41F43A1A">
+		<Item class="Folder" referent="RBX23234F07926C4B74BDA8C61CEB44BBD2">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -2553,7 +2553,7 @@ TweenService:Create(image, info, {
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Sound" referent="RBX49F91EBE3A5B4594A304365A0D84A1A9">
+			<Item class="Sound" referent="RBXA29E860999C24EF694A7F2452734B97F">
 				<Properties>
 					<bool name="AcousticSimulationEnabled">true</bool>
 					<NumberRange name="LoopRegion">0 60000 </NumberRange>

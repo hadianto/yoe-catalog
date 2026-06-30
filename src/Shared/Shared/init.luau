@@ -12,6 +12,9 @@ Shared.DATA_VERSION = 1
 Shared.REFUND_MODE = "on"
 Shared.REFUND_PAUSED_MESSAGE = "Refunds are not available until further notice."
 Shared.REFUND_RATE = 0.2
+Shared.PLUS_BONUS = 250        -- Robux you earn per eligible Plus signup (Roblox's rate)
+Shared.PLUS_REFUND_SHARE = 0.5 -- you give back 50% of that = 125
+Shared.PLUS_REWARD_ENABLED = true  -- master switch for the Plus refund bonus; false = no Plus reward, no accrual
 
 -- in Shared.lua
 Shared.ADMIN_IDS = { 9039786969, 9835488686 } -- REPLACE both with your two real UserIds (yours + alt/partner)
@@ -41,8 +44,11 @@ Shared.THEME = {
 	idle       = Color3.fromRGB(56, 50, 44),     -- inactive filter tab
 }
 Shared.DEFAULT_PROFILE = {
+	
 	Purchases = {
-		PlusConversions = 0,
+		PlusConversions = 0,         -- total in-game conversions (audit)
+		PlusEligibleConversions = 0, -- only those we likely EARNED on (drives refund)
+		RefundClaimedPlus = 0, 
 		PlusLastConvertedAt = 0,
 		DevProductSpend = 0,      -- exact Robux, from receipts
 		DevProductCount = 0,

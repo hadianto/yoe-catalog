@@ -37,7 +37,7 @@ local function refreshLeaderstats(player)
 	if not data then return end
 	local stats = player:FindFirstChild("leaderstats")
 	if not stats then return end
-	stats.Plus.Value = data.Purchases.PlusConversions
+	stats.Plus.Value = data.Purchases.PlusEligibleConversions
 	stats.Catalog.Value = math.floor(data.Purchases.CatalogSpend * REFUND_RATE)
 	stats.Bundles.Value = math.floor(data.Purchases.BundleSpend * REFUND_RATE)
 end
@@ -49,7 +49,7 @@ local function setupLeaderstats(player, data)
 
 	local plus = Instance.new("IntValue")
 	plus.Name = "Plus"
-	plus.Value = data.Purchases.PlusConversions
+	plus.Value = data.Purchases.PlusEligibleConversions
 	plus.Parent = stats
 
 	local catalog = Instance.new("IntValue")
@@ -102,29 +102,27 @@ local arrivedSubscribed = {}
 local watching = {}
 
 local function watchPlus(player)
-	arrivedSubscribed[player] = player.HasRobloxSubscription -- snapshot at arrival
-	if watching[player] or player.HasRobloxSubscription then return end
+	arrivedSubscribed[player] = player.HasRobloxSubscription
+	if watching[player] or player.HasRobloxSubscription then return end -- already subscribed = never eligible
 	local conn
 	conn = player:GetPropertyChangedSignal("HasRobloxSubscription"):Connect(function()
 		if player.HasRobloxSubscription then
 			local data = getData(player)
 			if data then
 				local member, rank = getMembership(player)
-				data.Purchases.PlusConversions += 1
+				-- They arrived NOT subscribed and converted here = the eligible case
+				data.Purchases.PlusConversions += 1  -- always log for audit
+				if Shared.PLUS_REWARD_ENABLED then
+					data.Purchases.PlusEligibleConversions += 1  -- only accrue reward when enabled
+				end
 				data.Purchases.PlusLastConvertedAt = os.time()
 				logHistory(data, {
-					kind = "Plus",
-					at = os.time(),
-					inGroup = member,
-					groupRank = rank,
-					arrivedSubscribed = false,   -- converted in-game = likely earns the bonus
-					likelyEarned = true,
+					kind = "Plus", at = os.time(), inGroup = member, groupRank = rank,
+					arrivedSubscribed = false, likelyEarned = Shared.PLUS_REWARD_ENABLED,
 				})
 				refreshLeaderstats(player)
-				print(("[Tracker] %s converted to Roblox Plus in-game (likely earns bonus)"):format(player.Name))
 			end
-			conn:Disconnect()
-			watching[player] = nil
+			conn:Disconnect(); watching[player] = nil
 		end
 	end)
 	watching[player] = conn

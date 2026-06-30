@@ -1,11 +1,14 @@
--- AdminTicketsClient  (LocalScript in StarterPlayerScripts)
+-- AdminTicketsClient  (LocalScript in StarterPlayerScripts) 
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TweenService = game:GetService("TweenService")
 local player = Players.LocalPlayer
 
+
 local Shared = require(ReplicatedStorage:WaitForChild("Shared"))
-if not table.find(Shared.ADMIN_IDS, player.UserId) then return end
+if not table.find(Shared.ADMIN_IDS, player.UserId) then
+	return
+end
 
 local Remotes = require(ReplicatedStorage.Shared:WaitForChild("Remotes"))
 local getTickets = Remotes.get("GetTickets")
@@ -31,29 +34,22 @@ local BTN_HOVER_BASE = Color3.fromRGB(232, 132, 96)
 local function corner(p, r) local c = Instance.new("UICorner") c.CornerRadius = UDim.new(0, r or 10) c.Parent = p end
 local function stroke(p, col, th, tr) local s = Instance.new("UIStroke") s.Color = col or STROKE_C s.Thickness = th or 1.5 s.Transparency = tr or 0.45 s.Parent = p return s end
 local function gradient(p, c1, c2, rot) local g = Instance.new("UIGradient") g.Color = ColorSequence.new(c1, c2) g.Rotation = rot or 90 g.Parent = p return g end
-
 local function labelStroke(p)
 	local s = Instance.new("UIStroke")
 	s.Color = Color3.fromRGB(60, 32, 22)
-	s.Thickness = 1
-	s.Transparency = 0.5
+	s.Thickness = 1; s.Transparency = 0.5
 	s.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
 	s.Parent = p
 end
-
 local function addHover(button, baseSize)
 	local g = button:FindFirstChildOfClass("UIGradient")
 	local edge = Instance.new("UIStroke")
-	edge.Color = Color3.fromRGB(255, 200, 170)
-	edge.Thickness = 1.5
-	edge.Transparency = 1
+	edge.Color = Color3.fromRGB(255, 200, 170); edge.Thickness = 1.5; edge.Transparency = 1
 	edge.Parent = button
 	button.MouseEnter:Connect(function()
 		if g then g.Color = ColorSequence.new(BTN_HOVER_TOP, BTN_HOVER_BASE) end
 		TweenService:Create(edge, TweenInfo.new(0.12), { Transparency = 0.2 }):Play()
-		TweenService:Create(button, TweenInfo.new(0.12), {
-			Size = UDim2.fromOffset(baseSize.X.Offset + 4, baseSize.Y.Offset + 2)
-		}):Play()
+		TweenService:Create(button, TweenInfo.new(0.12), { Size = UDim2.fromOffset(baseSize.X.Offset + 4, baseSize.Y.Offset + 2) }):Play()
 	end)
 	button.MouseLeave:Connect(function()
 		if g then g.Color = ColorSequence.new(BTN_TOP, BTN_BASE) end
@@ -69,8 +65,8 @@ gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 gui.DisplayOrder = 210
 gui.Parent = player:WaitForChild("PlayerGui")
 
-local ticketGui = player.PlayerGui:WaitForChild("TicketButton", 5)
-local dock = ticketGui and ticketGui:FindFirstChild("Dock")
+local ticketGui = player.PlayerGui:WaitForChild("TicketButton", 10)
+local dock = ticketGui and ticketGui:WaitForChild("Dock", 5)
 if not dock then
 	dock = Instance.new("Frame")
 	dock.Name = "Dock"

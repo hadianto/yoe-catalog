@@ -12,7 +12,7 @@ local cachedFolder: Folder? = nil
 
 export type RemoteNames =
 	"DataUpdated" | "RequestData" | "ShowNotification" | "TrackPurchase" |
-	"SubmitTicket" | "GetTickets" | "UpdateTicket" | "GetOwed"
+"SubmitTicket" | "GetTickets" | "UpdateTicket" | "GetOwed" | "GetHistory"
 
 local REMOTE_FOLDER_NAME = "Remotes"
 local REMOTE_DEFINITIONS: { [RemoteNames]: "RemoteEvent" | "RemoteFunction" } = {
@@ -24,6 +24,8 @@ local REMOTE_DEFINITIONS: { [RemoteNames]: "RemoteEvent" | "RemoteFunction" } = 
 	GetTickets       = "RemoteFunction", -- admin -> server: fetch all tickets
 	UpdateTicket     = "RemoteEvent",    -- admin -> server: mark a ticket paid/outstanding
 	GetOwed          = "RemoteFunction",  -- player -> server: how much am I owed right now
+	GetHistory       = "RemoteFunction", -- admin -> server: fetch a player's purchase history by UserId
+	
 }
 
 local function getRemoteFolder(): Folder
