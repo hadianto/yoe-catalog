@@ -25,6 +25,7 @@ local BTN_TOP  = Color3.fromRGB(176, 84, 56)
 local BTN_BASE = Color3.fromRGB(206, 112, 78)
 local BTN_HOVER_TOP  = Color3.fromRGB(206, 110, 78)
 local BTN_HOVER_BASE = Color3.fromRGB(232, 132, 96)
+local CARD_ISH = Color3.fromRGB(44, 39, 34)  -- ticket row bg
 
 local function corner(p, r) local c = Instance.new("UICorner") c.CornerRadius = UDim.new(0, r or 10) c.Parent = p end
 local function stroke(p, col, th, tr) local s = Instance.new("UIStroke") s.Color = col or STROKE_C s.Thickness = th or 1.5 s.Transparency = tr or 0.4 s.Parent = p return s end
@@ -137,6 +138,173 @@ pill.Font = Enum.Font.GothamBold
 pill.TextSize = 12
 pill.Parent = btn
 corner(pill, 10)
+
+-- ===== MY TICKETS (player-facing, read-only own status) =====
+local getMyTickets = Remotes.get("GetMyTickets")
+
+local MYT_SIZE = UDim2.fromOffset(150, 44)
+local mytBtn = Instance.new("TextButton")
+mytBtn.Size = MYT_SIZE
+mytBtn.LayoutOrder = 3 -- below Refund (2)
+mytBtn.Text = ""
+mytBtn.BackgroundColor3 = BTN_TOP
+mytBtn.AutoButtonColor = false
+mytBtn.Parent = dock
+corner(mytBtn, 11)
+gradient(mytBtn, BTN_TOP, BTN_BASE, 90)
+addHover(mytBtn, MYT_SIZE)
+
+local mytLabel = Instance.new("TextLabel")
+mytLabel.Size = UDim2.fromScale(1, 1)
+mytLabel.BackgroundTransparency = 1
+mytLabel.Text = "My Tickets"
+mytLabel.TextColor3 = Color3.new(1, 1, 1)
+mytLabel.Font = Enum.Font.GothamBold
+mytLabel.TextSize = 14
+mytLabel.Parent = mytBtn
+labelStroke(mytLabel)
+
+-- Panel
+local mytDim = Instance.new("Frame")
+mytDim.Size = UDim2.fromScale(1, 1)
+mytDim.BackgroundColor3 = Color3.new(0, 0, 0)
+mytDim.BackgroundTransparency = 0.45
+mytDim.Visible = false
+mytDim.ZIndex = 15
+mytDim.Parent = gui
+
+local mytPanel = Instance.new("Frame")
+mytPanel.Size = UDim2.fromOffset(420, 440)
+mytPanel.Position = UDim2.fromScale(0.5, 0.5)
+mytPanel.AnchorPoint = Vector2.new(0.5, 0.5)
+mytPanel.BackgroundColor3 = PANEL_BG
+mytPanel.ZIndex = 16
+mytPanel.Parent = mytDim
+corner(mytPanel, 14)
+stroke(mytPanel, STROKE_C, 1.5, 0.3)
+
+local mytHeader = Instance.new("Frame")
+mytHeader.Size = UDim2.new(1, 0, 0, 48)
+mytHeader.BackgroundColor3 = BTN_TOP
+mytHeader.ZIndex = 16
+mytHeader.Parent = mytPanel
+corner(mytHeader, 14)
+gradient(mytHeader, BTN_BASE, BTN_TOP, 0)
+
+local mytTitle = Instance.new("TextLabel")
+mytTitle.Size = UDim2.new(1, -60, 1, 0)
+mytTitle.Position = UDim2.fromOffset(16, 0)
+mytTitle.BackgroundTransparency = 1
+mytTitle.TextXAlignment = Enum.TextXAlignment.Left
+mytTitle.Text = "My Refund Tickets"
+mytTitle.TextColor3 = Color3.new(1, 1, 1)
+mytTitle.Font = Enum.Font.GothamBold
+mytTitle.TextSize = 17
+mytTitle.ZIndex = 17
+mytTitle.Parent = mytHeader
+
+local mytClose = Instance.new("TextButton")
+mytClose.Size = UDim2.fromOffset(30, 30)
+mytClose.Position = UDim2.new(1, -40, 0.5, -15)
+mytClose.BackgroundColor3 = Color3.fromRGB(70, 76, 92)
+mytClose.Text = "X"
+mytClose.TextColor3 = Color3.new(1, 1, 1)
+mytClose.Font = Enum.Font.GothamBold
+mytClose.TextSize = 14
+mytClose.ZIndex = 17
+mytClose.Parent = mytHeader
+corner(mytClose, 8)
+
+local mytList = Instance.new("ScrollingFrame")
+mytList.Size = UDim2.new(1, -24, 1, -68)
+mytList.Position = UDim2.fromOffset(12, 58)
+mytList.BackgroundTransparency = 1
+mytList.BorderSizePixel = 0
+mytList.ScrollBarThickness = 6
+mytList.ScrollBarImageColor3 = BTN_BASE
+mytList.CanvasSize = UDim2.new(0, 0, 0, 0)
+mytList.AutomaticCanvasSize = Enum.AutomaticSize.Y
+mytList.ZIndex = 16
+mytList.Parent = mytPanel
+local mytLayout = Instance.new("UIListLayout")
+mytLayout.Padding = UDim.new(0, 8)
+mytLayout.SortOrder = Enum.SortOrder.LayoutOrder
+mytLayout.Parent = mytList
+
+local function fmtDate(t)
+	if not t or t == 0 then return "" end
+	return os.date("!%Y-%m-%d", t)
+end
+
+local function renderMyTickets()
+	for _, c in ipairs(mytList:GetChildren()) do
+		if c:IsA("Frame") then c:Destroy() end
+	end
+	local tickets = {}
+	local ok = pcall(function() tickets = getMyTickets:InvokeServer() end)
+	if not ok then tickets = {} end
+
+	if #tickets == 0 then
+		local empty = Instance.new("TextLabel")
+		empty.Size = UDim2.new(1, -4, 0, 60)
+		empty.BackgroundTransparency = 1
+		empty.Text = "You have no refund tickets yet."
+		empty.TextColor3 = TEXT_SUB
+		empty.Font = Enum.Font.Gotham
+		empty.TextSize = 14
+		empty.ZIndex = 16
+		empty.Parent = mytList
+		return
+	end
+
+	table.sort(tickets, function(a, b) return a.createdAt > b.createdAt end)
+	for _, t in ipairs(tickets) do
+		local row = Instance.new("Frame")
+		row.Size = UDim2.new(1, -4, 0, 72)
+		row.BackgroundColor3 = t.status == "paid" and Color3.fromRGB(34, 44, 36) or CARD_ISH
+		row.ZIndex = 16
+		row.Parent = mytList
+		corner(row, 10)
+		stroke(row, STROKE_C, 1, 0.55)
+
+		local paidVia = t.paidVia and (" · via " .. tostring(t.paidVia)) or ""
+		local info = Instance.new("TextLabel")
+		info.Size = UDim2.new(1, -120, 1, -10)
+		info.Position = UDim2.fromOffset(12, 5)
+		info.BackgroundTransparency = 1
+		info.TextXAlignment = Enum.TextXAlignment.Left
+		info.TextYAlignment = Enum.TextYAlignment.Top
+		info.RichText = true
+		info.TextWrapped = true
+		info.Font = Enum.Font.Gotham
+		info.TextColor3 = Color3.new(1, 1, 1)
+		info.TextSize = 13
+		info.ZIndex = 17
+		info.Text = string.format(
+			"<b>%d Robux</b>\n<font color='#beb2a8'>Ticket %s · %s%s</font>",
+			t.amount, tostring(t.id), fmtDate(t.createdAt),
+			t.status == "paid" and (paidVia) or "")
+		info.Parent = row
+
+		local pill = Instance.new("TextLabel")
+		pill.Size = UDim2.fromOffset(96, 24)
+		pill.Position = UDim2.new(1, -108, 0.5, -12)
+		pill.BackgroundColor3 = t.status == "paid" and Color3.fromRGB(56, 170, 100) or Color3.fromRGB(210, 150, 50)
+		pill.Text = t.status == "paid" and "PAID" or "PENDING"
+		pill.TextColor3 = Color3.new(1, 1, 1)
+		pill.Font = Enum.Font.GothamBold
+		pill.TextSize = 12
+		pill.ZIndex = 17
+		pill.Parent = row
+		corner(pill, 10)
+	end
+end
+
+mytBtn.MouseButton1Click:Connect(function()
+	mytDim.Visible = true
+	renderMyTickets()
+end)
+mytClose.MouseButton1Click:Connect(function() mytDim.Visible = false end)
 
 -- ===== Confirm popup =====
 local dim = Instance.new("Frame")

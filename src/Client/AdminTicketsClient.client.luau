@@ -237,24 +237,36 @@ local function makeRow(ticket)
 	corner(pill, 11)
 
 	if ticket.status == "outstanding" then
-		local pay = Instance.new("TextButton")
-		pay.Size = UDim2.fromOffset(104, 32)
-		pay.Position = UDim2.new(1, -114, 1, -40)
-		pay.BackgroundColor3 = GREEN_A
-		pay.Text = "Mark Paid"
-		pay.TextColor3 = Color3.new(1, 1, 1)
-		pay.Font = Enum.Font.GothamBold
-		pay.TextSize = 13
-		pay.AutoButtonColor = true
-		pay.Parent = row
-		corner(pay, 9)
-		gradient(pay, GREEN_B, GREEN_A, 90)
-		pay.MouseButton1Click:Connect(function()
-			pay.Text = "..."
-			updateTicket:FireServer(ticket.id, "paid")
-			task.wait(0.6)
-			render()
-		end)
+		-- Two ways to fulfill, both just MARK it paid (you do the real transfer yourself)
+		local function payButton(label, method, xOffset)
+			local pay = Instance.new("TextButton")
+			pay.Size = UDim2.fromOffset(104, 30)
+			pay.Position = UDim2.new(1, -114, 1, xOffset)
+			pay.BackgroundColor3 = GREEN_A
+			pay.Text = label
+			pay.TextColor3 = Color3.new(1, 1, 1)
+			pay.Font = Enum.Font.GothamBold
+			pay.TextSize = 12
+			pay.AutoButtonColor = true
+			pay.Parent = row
+			corner(pay, 9)
+			gradient(pay, GREEN_B, GREEN_A, 90)
+			pay.MouseButton1Click:Connect(function()
+				pay.Text = "..."
+				-- copy the UserId + amount so you can paste into the payout/transfer page
+				if setclipboard then
+					pcall(function()
+						setclipboard(("%d  %d Robux"):format(ticket.userId, ticket.amount))
+					end)
+				end
+				updateTicket:FireServer(ticket.id, "paid", method)
+				task.wait(0.6)
+				render()
+			end)
+			return pay
+		end
+		payButton("Paid: Group", "group", -70)
+		payButton("Paid: Transfer", "transfer", -36)
 	end
 end
 

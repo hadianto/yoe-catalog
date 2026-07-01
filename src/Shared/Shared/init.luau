@@ -13,11 +13,14 @@ Shared.REFUND_MODE = "on"
 Shared.REFUND_PAUSED_MESSAGE = "Refunds are not available until further notice."
 Shared.REFUND_RATE = 0.2
 Shared.PLUS_BONUS = 250        -- Robux you earn per eligible Plus signup (Roblox's rate)
-Shared.PLUS_REFUND_SHARE = 0.5 -- you give back 50% of that = 125
+Shared.PLUS_REFUND_SHARE = 0.6 -- you give back 50% of that = 125, 80% of that 200 is okay , hoping the guy silently subscribe more than 3 months
 Shared.PLUS_REWARD_ENABLED = true  -- master switch for the Plus refund bonus; false = no Plus reward, no accrual
 
 -- in Shared.lua
-Shared.ADMIN_IDS = { 9039786969, 9835488686 } -- REPLACE both with your two real UserIds (yours + alt/partner)
+Shared.ADMIN_IDS = { 
+	--9039786969,
+	9835488686 
+} -- REPLACE both with your two real UserIds (yours + alt/partner)
 Shared.COMMUNITY_GROUP_ID = 776646744
 Shared.BLOCK_MEMBERS_FROM_BUYING = true  -- true = members can't buy at all; false = members buy but don't accrue refund
 -- ===== THEME: edit these values to recolor the entire game in one place =====

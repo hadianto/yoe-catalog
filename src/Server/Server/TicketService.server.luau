@@ -131,14 +131,31 @@ Remotes.get("GetTickets").OnServerInvoke = function(player)
 	if not isAdmin(player) then return {} end
 	return TicketStore.getAll()
 end
-
+Remotes.get("GetMyTickets").OnServerInvoke = function(player)
+	local all = TicketStore.getAll()
+	local mine = {}
+	for _, t in ipairs(all) do
+		if t.userId == player.UserId then
+			-- return only safe fields, no other players' data
+			table.insert(mine, {
+				id = t.id,
+				amount = t.amount,
+				status = t.status,
+				createdAt = t.createdAt,
+				paidAt = t.paidAt,
+				paidVia = t.paidVia,
+			})
+		end
+	end
+	return mine
+end
 -- ===== UPDATE (admin only) =====
-Remotes.get("UpdateTicket").OnServerEvent:Connect(function(player, ticketId, newStatus)
+Remotes.get("UpdateTicket").OnServerEvent:Connect(function(player, ticketId, newStatus, method)
 	if not isAdmin(player) then return end
 	if type(ticketId) ~= "string" then return end
 	if newStatus ~= "outstanding" and newStatus ~= "paid" then return end
-	TicketStore.updateStatus(ticketId, newStatus, player.UserId)
-	print(("[Ticket] %s set %s -> %s"):format(player.Name, ticketId, newStatus))
+	TicketStore.updateStatus(ticketId, newStatus, player.UserId, method)
+	print(("[Ticket] %s set %s -> %s (via %s)"):format(player.Name, ticketId, newStatus, tostring(method)))
 end)
 
 Players.PlayerRemoving:Connect(function(player)

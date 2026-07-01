@@ -55,6 +55,21 @@ plus_button.MouseButton1Click:Connect(function()
 	UIClickSound:Play()
 	MarketplaceService:PromptRobloxSubscriptionPurchase(player)
 end)
+-- Show the Plus refund reward under the Plus button (flat, from config)
+local plusReward = math.floor((Shared.PLUS_BONUS or 0) * (Shared.PLUS_REFUND_SHARE or 0))
+if Shared.PLUS_REWARD_ENABLED and plusReward > 0 then
+	local rewardTag = Instance.new("TextLabel")
+	rewardTag.Name = "PlusRewardTag"
+	rewardTag.Size = UDim2.new(1, 0, 0, 16)
+	rewardTag.Position = UDim2.new(0, 0, 1, 2)  -- just below the button
+	rewardTag.BackgroundTransparency = 1
+	rewardTag.Text = ("Get %d Robux back on signup"):format(plusReward)
+	rewardTag.TextColor3 = Color3.fromRGB(96, 200, 132)  -- green, reads as a perk
+	rewardTag.Font = Enum.Font.GothamMedium
+	rewardTag.TextSize = 11
+	rewardTag.TextXAlignment = Enum.TextXAlignment.Center
+	rewardTag.Parent = plus_button
+end
 ------------------------------------------------------------------------
 back_button.MouseButton1Click:Connect(function()
 	UIClickSound:Play()

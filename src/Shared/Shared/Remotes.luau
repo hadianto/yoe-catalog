@@ -25,7 +25,7 @@ local REMOTE_DEFINITIONS: { [RemoteNames]: "RemoteEvent" | "RemoteFunction" } = 
 	UpdateTicket     = "RemoteEvent",    -- admin -> server: mark a ticket paid/outstanding
 	GetOwed          = "RemoteFunction",  -- player -> server: how much am I owed right now
 	GetHistory       = "RemoteFunction", -- admin -> server: fetch a player's purchase history by UserId
-	
+	GetMyTickets     = "RemoteFunction", -- player -> server: only THEIR OWN tickets
 }
 
 local function getRemoteFolder(): Folder

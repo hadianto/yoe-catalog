@@ -33,7 +33,7 @@ function TicketStore.getAll()
 	return {}
 end
 
-function TicketStore.updateStatus(ticketId, newStatus, byUserId)
+function TicketStore.updateStatus(ticketId, newStatus, byUserId, method)
 	local ok, err = pcall(function()
 		store:UpdateAsync(KEY, function(old)
 			old = old or {}
@@ -43,6 +43,7 @@ function TicketStore.updateStatus(ticketId, newStatus, byUserId)
 					if newStatus == "paid" then
 						t.paidAt = os.time()
 						t.paidBy = byUserId
+						t.paidVia = method
 					end
 					break
 				end
